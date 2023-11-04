@@ -5,11 +5,13 @@ const Lyrics = ({lines, currentLineIndex}) => {
     const lyricsLine = useRef(currentLineIndex);
 
     useEffect(() => {
-        lyricsLine.current.scrollIntoView({
-            block: 'start',
-            inline: 'nearest',
-            behavior: 'smooth',
-          });
+        if (currentLineIndex >= 0) {
+            lyricsLine.current.scrollIntoView({
+                block: 'start',
+                inline: 'nearest',
+                behavior: 'smooth',
+              });
+        }   
     }, [currentLineIndex])
 
     return (
